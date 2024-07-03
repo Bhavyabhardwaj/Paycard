@@ -1,21 +1,67 @@
-- Clone the repo
+# Paycard
 
-```jsx
+Paycard is a peer-to-peer money transfer application that allows users to send money securely from one person to another. It features a dummy bank webhook server for facilitating secure transfers from a user's bank account to their wallet.
+
+## Getting Started
+
+Follow these steps to set up and run the project locally.
+
+### Clone the Repository
+
+```bash
 git clone https://github.com/Bhavyabhardwaj/Paycard.git
+cd Paycard
 ```
 
-- npm install
-- Run postgres either locally or on the cloud (neon.tech)
+### Install Dependencies
 
-```jsx
-docker run  -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+```bash
+npm install
 ```
 
-- Copy over all .env.example files to .env
-- Update .env files everywhere with the right db url
-- Go to `packages/db`
-    - npx prisma migrate dev
-    - npx prisma db seed
-    - npx prisma generate
-- Go to `apps/user-app` , run `npm run dev`
-- Try logging in using phone - 1111111111 , password - alice (See `seed.ts`)
+### Set Up PostgreSQL
+
+You can run PostgreSQL locally using Docker or use a cloud-based solution like Neon.tech.
+
+```bash
+docker run -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+```
+
+### Configure Environment Variables
+
+Copy all `.env.example` files to `.env` and update them with the correct database URLs and other necessary configuration.
+
+```bash
+cp .env.example .env
+```
+
+### Database Setup
+
+Navigate to the `packages/db` directory and run the following commands to set up the database:
+
+```bash
+cd packages/db
+npx prisma migrate dev
+npx prisma db seed
+npx prisma generate
+```
+
+### Run the Application
+
+Navigate to the `apps/user-app` directory and start the development server:
+
+```bash
+cd apps/user-app
+npm run dev
+```
+
+### Logging In
+
+You can log in using the following credentials (as defined in `seed.ts`):
+
+- **Phone:** 1111111111
+- **Password:** alice
+
+## Contributing
+
+We welcome contributions! Please fork the repository and submit pull requests.
